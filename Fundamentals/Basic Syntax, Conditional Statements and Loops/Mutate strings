@@ -1,0 +1,13 @@
+first_word = input()
+second_word = input()
+new_word = ''
+previous_word = first_word
+for i in range(len(first_word)):
+    for j in range(0, i+1):
+        new_word += second_word[j]
+    for k in range(i+1, len(first_word)):
+        new_word += first_word[k]
+    if not previous_word == new_word:
+        print(new_word)
+    previous_word = new_word
+    new_word = ''
