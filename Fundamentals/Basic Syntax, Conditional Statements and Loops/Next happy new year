@@ -1,0 +1,8 @@
+number = int(input())
+number += 1
+
+while True:
+    if len(str(number)) == len(set(str(number))):
+        print(number)
+        break
+    number += 1
