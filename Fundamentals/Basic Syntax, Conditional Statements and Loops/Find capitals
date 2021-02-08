@@ -1,0 +1,7 @@
+input_string = list(input())
+list_capitals = []
+for i in range(len(input_string)):
+    if input_string[i].isupper():
+        list_capitals.append(i)
+
+print(list_capitals)
