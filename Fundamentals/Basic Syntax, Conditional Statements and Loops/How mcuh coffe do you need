@@ -1,0 +1,15 @@
+command = input()
+count = 0
+is_coffee_enough = True
+while command != 'END':
+    if command == 'coding' or command == 'cat' or command == 'dog' or command == 'movie':
+        count += 1
+    elif command == 'CODING' or command == 'CAT' or command == 'DOG' or command == 'MOVIE':
+        count += 2
+    command = input()
+if count > 5:
+    print('You need extra sleep')
+    is_coffee_enough = False
+
+if is_coffee_enough:
+    print(count)
