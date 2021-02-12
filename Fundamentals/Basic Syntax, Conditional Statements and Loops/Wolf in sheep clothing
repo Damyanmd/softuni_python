@@ -1,0 +1,10 @@
+animal = input().split(", ")
+
+if animal.pop() == "wolf":
+    print("Please go away and stop eating my sheep")
+
+reversed_array = animal[::-1]
+
+for i in range(len(reversed_array)):
+    if reversed_array[i] != "sheep":
+        print(f"Oi! Sheep number {i + 1}! You are about to be eaten by a wolf!")
