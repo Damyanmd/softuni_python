@@ -1,0 +1,7 @@
+start = int(input())
+stop = int(input())
+combination = ''
+for i in range(start, stop+1):
+    symbol = chr(i)
+    combination += ' ' + symbol
+print(combination)
