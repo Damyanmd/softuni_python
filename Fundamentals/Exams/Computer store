@@ -1,0 +1,26 @@
+sum_prices_with_no_tax = 0
+while True:
+    data = input()
+    if data == 'special':
+        discount = sum_prices_with_no_tax * 0.1
+        break
+    elif data == 'regular':
+        break
+    data = float(data)
+    if data < 0:
+        print(f'Invalid price!')
+        continue
+    sum_prices_with_no_tax += data
+if sum_prices_with_no_tax == 0:
+    print('Invalid order!')
+else:
+    print('Congratulations you\'ve just bought a new computer!')
+    print(f'Price without taxes: {sum_prices_with_no_tax:.2f}$')
+    print(f'Taxes: {(sum_prices_with_no_tax * 0.2):.2f}$')
+    print('-----------')
+    if data == 'special':
+        print(f'Total price: {((sum_prices_with_no_tax - discount) + ((sum_prices_with_no_tax - discount) * 0.2) ):.2f}$')
+    else:
+        print(
+            f'Total price: {(sum_prices_with_no_tax  + (sum_prices_with_no_tax  * 0.2)):.2f}$')
+
