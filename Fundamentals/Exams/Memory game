@@ -1,0 +1,33 @@
+elements = input().split()
+data = input()
+moves = 1
+is_won = False
+while data != 'end':
+    first_index, second_index = data.split()
+    first_index = int(first_index)
+    second_index = int(second_index)
+    if first_index >= len(elements) or second_index >= len(elements) or first_index == second_index or first_index < 0 or second_index < 0:
+        print('Invalid input! Adding additional elements to the board')
+        additional_element = '-' + str(moves) + 'a'
+        middle = len(elements) // 2
+        for _ in range(2):
+            elements.insert(middle, additional_element)
+    elif elements[first_index] != elements[second_index]:
+        print('Try again!')
+    else:
+        print(f'Congrats! You have found matching elements - {elements[first_index]}!')
+        if first_index > second_index:
+            elements.pop(first_index)
+            elements.pop(second_index)
+        else:
+            elements.pop(second_index)
+            elements.pop(first_index)
+    if len(elements) == 0:
+        print(f'You have won in {moves} turns!')
+        is_won = True
+        break
+    moves += 1
+    data = input()
+if not is_won:
+    print('Sorry you lose :(')
+    print(' '.join(elements))
