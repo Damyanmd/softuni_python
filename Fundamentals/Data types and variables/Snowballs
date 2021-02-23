@@ -1,0 +1,16 @@
+import math
+import sys
+n = int(input())
+biggest = -sys.maxsize
+saved = 0
+for i in range(n):
+    snowball_snow = int(input())
+    snowball_time = int(input())
+    snowball_quality = int(input())
+    snowball_value = math.pow((snowball_snow/snowball_time), snowball_quality)
+    if snowball_value > biggest:
+        biggest = snowball_value
+        saved_1 = snowball_quality
+        saved_2 = snowball_snow
+        saved_3 = snowball_time
+print(f'{saved_2} : {saved_3} = {round(biggest)} ({saved_1})')
