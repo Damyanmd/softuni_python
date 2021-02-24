@@ -1,0 +1,9 @@
+n = int(input())
+liters_in = 0
+for i in range(n):
+    liters = int(input())
+    liters_in += liters
+    if liters_in > 255:
+        liters_in -= liters
+        print(f'Insufficient capacity!')
+print(liters_in)
