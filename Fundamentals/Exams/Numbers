@@ -1,0 +1,14 @@
+numbers = [int(i) for i in input().split()]
+average_numbers = sum(numbers) / len(numbers)
+greater_than_average = []
+for number in numbers:
+    if number > average_numbers:
+        greater_than_average.append(number)
+if greater_than_average == []:
+    print('No')
+else:
+    greater_than_average = sorted(greater_than_average)
+    greater_than_average.reverse()
+    while len(greater_than_average) > 5:
+        greater_than_average.pop()
+    print(' '.join(str(x) for x in greater_than_average))
