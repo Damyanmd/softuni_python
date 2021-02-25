@@ -1,0 +1,39 @@
+entry_array = [int(i) for i in input().split()]
+
+def swap(array, first_index, second_index):
+    temp = array[first_index]
+    array[first_index] = array[second_index]
+    array[second_index] = temp
+    return array
+
+def multiply(array, first_index, second_index):
+    result = array[first_index] * array[second_index]
+    array[first_index] = result
+    return array
+
+def decrease(array):
+    for index in range(len(array)):
+        array[index] -= 1
+    return array
+
+def solution(array, command):
+    global entry_array
+    command_split = command.split()
+    if command_split[0] == 'swap':
+        swap_index_1 = int(command_split[1])
+        swap_index_2 = int(command_split[2])
+        entry_array = swap(array, swap_index_1, swap_index_2)
+    elif command_split[0] == 'multiply':
+        multiply_index_1 = int(command_split[1])
+        multiply_index_2 = int(command_split[2])
+        entry_array = multiply(array, multiply_index_1, multiply_index_2)
+    elif command_split[0] == 'decrease':
+        entry_array = decrease(array)
+
+while True:
+    command = input()
+    if command == 'end':
+        print(', '.join(str(x) for x in entry_array))
+        break
+    else:
+        solution(entry_array, command)
