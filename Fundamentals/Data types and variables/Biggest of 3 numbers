@@ -1,0 +1,12 @@
+import  sys
+number_1 = int(input())
+number_2 = int(input())
+number_3 = int(input())
+biggest = -sys.maxsize
+if number_1 > biggest:
+    biggest = number_1
+if number_2 > biggest:
+    biggest = number_2
+if number_3 > biggest:
+    biggest = number_3
+print(biggest)
