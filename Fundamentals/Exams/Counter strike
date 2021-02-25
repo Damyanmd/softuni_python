@@ -1,0 +1,17 @@
+overall_energy = int(input())
+energy = input()
+battles_won = 0
+enough_energy = True
+while energy != 'End of battle':
+    energy = int(energy)
+    if energy > overall_energy:
+        print(f'Not enough energy! Game ends with {battles_won} won battles and {overall_energy} energy')
+        enough_energy = False
+        break
+    overall_energy -= energy
+    battles_won += 1
+    if battles_won % 3 == 0:
+        overall_energy += battles_won
+    energy = input()
+if enough_energy:
+    print(f'Won battles: {battles_won}. Energy left: {overall_energy}')
