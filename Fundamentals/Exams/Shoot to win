@@ -1,0 +1,18 @@
+targets = list(map(int, input().split()))
+hit = input()
+while hit != 'End':
+    hit = int(hit)
+    if 0 <= hit < len(targets):
+        for index in range(len(targets)):
+            if targets[index] > targets[hit] and targets[index] != -1:
+                targets[index] -= targets[hit]
+            elif targets[index] <= targets[hit] and targets[index] != -1 and index != hit:
+                targets[index] += targets[hit]
+        targets[hit] = -1
+    hit = input()
+
+count_shots = 0
+for shot in targets:
+    if shot == -1:
+        count_shots += 1
+print(f'Shot targets: {count_shots} -> {" ".join(str(x) for x in targets)}')
