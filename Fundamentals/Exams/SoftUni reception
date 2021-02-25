@@ -1,0 +1,14 @@
+first_employee = int(input())
+second_employee = int(input())
+third_employee = int(input())
+all_students = int(input())
+hours = 1
+while True:
+    if hours % 4 == 0:
+        hours += 1
+        continue
+    all_students -= first_employee + second_employee + third_employee
+    if all_students <= 0:
+        break
+    hours += 1
+print(f'Time needed: {hours}h.')
