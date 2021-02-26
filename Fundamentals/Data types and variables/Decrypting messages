@@ -1,0 +1,8 @@
+key = int(input())
+n = int(input())
+word = ''
+for i in range(n):
+    letter = input()
+    symbol = chr(ord(letter) + key)
+    word += symbol
+print(word)
