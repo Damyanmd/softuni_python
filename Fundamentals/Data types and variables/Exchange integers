@@ -1,0 +1,10 @@
+number_1 = int(input())
+number_2 = int(input())
+new_number_1 = number_2
+new_number_2 = number_1
+print(f'Before:')
+print(f'a = {number_1}')
+print(f'b = {number_2}')
+print(f'After:')
+print(f'a = {new_number_1}')
+print(f'b = {new_number_2}')
