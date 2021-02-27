@@ -1,0 +1,22 @@
+import math
+budget = float(input())
+students = int(input())
+flour_price = float(input())
+egg_price = float(input())
+apron_price = float(input())
+
+cost = 0
+
+for student in range(students):
+    if (student + 1) % 5 == 0 and student != 0:
+        cost += 0
+    else:
+        cost += flour_price
+    cost += egg_price * 10
+    cost += apron_price
+cost += apron_price * math.ceil(students * 0.2)
+
+if budget >= cost:
+    print(f'Items purchased for {cost:.2f}$.')
+else:
+    print(f'{(cost - budget):.2f}$ more needed.')
