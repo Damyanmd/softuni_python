@@ -1,0 +1,37 @@
+entry_array = [str(i) for i in input().split(', ')]
+
+lost_names = []
+blacklisted_names = []
+
+def solution(array, command):
+    command_split = command.split()
+    if command_split[0] == 'Blacklist':
+        name = command_split[1]
+        if name in array:
+            blacklisted_names.append(name)
+            print(f'{name} was blacklisted.')
+            array[array.index(name)] = 'Blacklisted'
+        else:
+            print(f'{name} was not found.')
+    elif command_split[0] == 'Error':
+        index = int(command_split[1])
+        if not array[index] == 'Blacklisted' and not array[index] == 'Lost':
+            lost_names.append(array[index])
+            print(f'{array[index]} was lost due to an error.')
+            array[index] = 'Lost'
+    elif command_split[0] == 'Change':
+        index = int(command_split[1])
+        name = command_split[2]
+        if 0 <= index < len(array):
+            print(f'{array[index]} changed his username to {name}.')
+            array[index] = name
+
+while True:
+    command = input()
+    if command == 'Report':
+        print(f'Blacklisted names: {len(blacklisted_names)}')
+        print(f'Lost names: {len(lost_names)}')
+        print(' '.join(str(x) for x in entry_array))
+        break
+    else:
+        solution(entry_array, command)
