@@ -1,0 +1,24 @@
+message = []
+
+while True:
+    data = input()
+    if data == 'end':
+        break
+    data = data.split()
+    if data[0] == 'Chat':
+        message.append(data[1])
+    elif data[0] == 'Delete':
+        if data[1] in message:
+            message.remove(data[1])
+    elif data[0] == 'Edit':
+        message[message.index(data[1])] = data[2]
+    elif data[0] == 'Pin':
+        temp = message[message.index(data[1])]
+        message.remove(data[1])
+        message.append(temp)
+    elif data[0] == 'Spam':
+        data.pop(0)
+        for d in data:
+            message.append(d)
+for m in message:
+    print(m)
