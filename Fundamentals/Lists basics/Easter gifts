@@ -1,0 +1,30 @@
+gifts = input().split()
+command = input().split()
+modified_gifts = []
+while command[0] != 'No':
+    if 'OutOfStock' in command[0]:
+        for j in gifts:
+            if command[1] in j:
+                j = 'None'
+
+    elif 'Required' in command[0]:
+       if len(gifts) > int(command[2]) and int(command[2]) >= 0:
+        gifts[int(command[2])] = command[1]
+    elif 'JustInCase' in command[0]:
+        gifts[-1] = command[1]
+    command = input().split()
+
+for i in gifts:
+    if 'None' in i:
+        gifts.remove(i)
+for i in range(len(gifts)):
+    if 'None' in gifts[i]:
+        gifts.remove(gifts[i])
+        for j in range(i, len(gifts)):
+            if 'None' in gifts[j]:
+                gifts.remove(gifts[j])
+            if gifts[j] == len(gifts):
+                break
+    if gifts[i] == len(gifts):
+        break
+print(" ".join(filter(None, gifts)))
