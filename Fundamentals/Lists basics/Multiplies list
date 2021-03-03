@@ -1,0 +1,7 @@
+number = int(input())
+times = int(input())
+times_maybe = times * number
+result = []
+for i in range(number, times_maybe+1, number):
+    result.append(i)
+print(result)
