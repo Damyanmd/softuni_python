@@ -1,0 +1,20 @@
+import sys
+numbers = input().split()
+n = int(input())
+list_number = []
+min_number = sys.maxsize
+
+for i in range(n):
+    for j in numbers:
+        number = int(j)
+        list_number.append(number)
+        if min_number > number:
+            min_number = number
+
+    list_number.remove(min_number)
+
+    numbers = map(str, list_number)
+    list_number = []
+    min_number = sys.maxsize
+numbers = map(int, numbers)
+print(list(numbers))
