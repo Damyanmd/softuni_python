@@ -1,0 +1,56 @@
+first_line = input().split()
+second_line = input().split()
+third_line = input().split()
+no_victory = True
+#1 wins
+if first_line[0] == first_line[1] == first_line[2] == '1':
+    print(f'First player won')
+    no_victory = False
+elif second_line[0] == second_line[1] == second_line[2] == '1':
+    print(f'First player won')
+    no_victory = False
+elif third_line[0] == third_line[1] == third_line[2] == '1':
+    print(f'First player won')
+    no_victory = False
+elif first_line[0] == second_line[1] == third_line[2] == '1':
+    print(f'First player won')
+    no_victory = False
+elif third_line[0] == second_line[1] == first_line[2] == '1':
+    print(f'First player won')
+    no_victory = False
+elif first_line[0] == second_line[0] == third_line[0] == '1':
+    print(f'First player won')
+    no_victory = False
+elif first_line[1] == second_line[1] == third_line[1] == '1':
+    print(f'First player won')
+    no_victory = False
+elif first_line[2] == second_line[2] == third_line[2] == '1':
+    print(f'First player won')
+    no_victory = False
+#2 wins
+if first_line[0] == first_line[1] == first_line[2] == '2':
+    print(f'Second player won')
+    no_victory = False
+elif second_line[0] == second_line[1] == second_line[2] == '2':
+    print(f'Second player won')
+    no_victory = False
+elif third_line[0] == third_line[1] == third_line[2] == '2':
+    print(f'Second player won')
+    no_victory = False
+elif first_line[0] == second_line[1] == third_line[2] == '2':
+    print(f'Second player won')
+    no_victory = False
+elif third_line[0] == second_line[1] == first_line[2] == '2':
+    print(f'Second player won')
+    no_victory = False
+elif first_line[0] == second_line[0] == third_line[0] == '2':
+    print(f'Second player won')
+    no_victory = False
+elif first_line[1] == second_line[1] == third_line[1] == '2':
+    print(f'Second player won')
+    no_victory = False
+elif first_line[2] == second_line[2] == third_line[2] == '2':
+    print(f'Second player won')
+    no_victory = False
+if no_victory:
+    print('Draw!')
