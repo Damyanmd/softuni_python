@@ -1,0 +1,20 @@
+rows = int(input())
+dict_rows = {}
+destroyed_ships = 0
+for i in range(rows):
+    row = input().split(' ')
+    dict_rows[i] = []
+    for index in row:
+        dict_rows[i].append(int(index))
+attacks = input().split(' ')
+for attack in attacks:
+    row_attack = int(attack[0])
+    collum_attack = attack[2]
+    for key, value in dict_rows.items():
+        if key == row_attack:
+            index = int(collum_attack)
+            if value[index] != 0:
+                value[index] -= 1
+                if value[index] == 0:
+                    destroyed_ships += 1
+print(destroyed_ships)
