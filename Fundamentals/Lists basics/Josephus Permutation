@@ -1,0 +1,17 @@
+list_number = input().split()
+k = int(input())
+printed_list = []
+
+count = 0
+index = 0
+while len(list_number) != 0:
+
+    count += 1
+    if count % k == 0:
+        printed_list.append(int(list_number.pop(index)))
+    else:
+        index += 1
+    if index >= len(list_number):
+        index = 0
+printed_list = str(printed_list).replace(' ', '')
+print(printed_list)
