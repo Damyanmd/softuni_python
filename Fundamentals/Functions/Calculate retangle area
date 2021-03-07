@@ -1,0 +1,7 @@
+first_num = int(input())
+second_num = int(input())
+def solve(a, b):
+    result = round(a * b)
+
+    return result
+print(solve(first_num, second_num))
