@@ -1,0 +1,15 @@
+input_operator = input()
+first_num = int(input())
+second_num = int(input())
+def solve(a, b, opeator):
+    result = None
+    if opeator == 'multiply':
+        result = a * b
+    elif opeator == 'divide':
+        result = int(a / b)
+    elif opeator == 'add':
+        result = a + b
+    elif opeator == 'subtract':
+        result = a - b
+    return result
+print(solve(first_num, second_num, input_operator))
