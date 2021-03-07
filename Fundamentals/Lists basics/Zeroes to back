@@ -1,0 +1,11 @@
+numbers = input().split(', ')
+int_numbers =[]
+for i in numbers:
+
+    if i == '0':
+        numbers.remove(i)
+        numbers.insert(len(numbers), i)
+for i in numbers:
+    i = int(i)
+    int_numbers.append(i)
+print(int_numbers)
