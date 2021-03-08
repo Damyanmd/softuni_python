@@ -1,0 +1,8 @@
+input_string = input()
+repeats = int(input())
+def repeat_string(string, rep):
+    result = ''
+    for i in range(rep):
+        result += string
+    return result
+print(repeat_string(input_string, repeats))
