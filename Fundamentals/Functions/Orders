@@ -1,0 +1,14 @@
+input_product = input()
+quantity = int(input())
+def solve(numbers, product):
+    result = None
+    if product == 'coffee':
+        result = 1.50 * numbers
+    elif product == 'water':
+        result = 1.00 * numbers
+    elif product == 'coke':
+        result = 1.40 * numbers
+    elif product == 'snacks':
+        result = 2.00 * numbers
+    return result
+print(f'{solve(quantity, input_product):.2f}')
