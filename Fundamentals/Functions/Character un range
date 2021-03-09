@@ -1,0 +1,10 @@
+first_string = ord(input())
+second_string = ord(input())
+def characters_in_between(start, finish):
+    result = ''
+    for i in range(start + 1, finish):
+        symbol = chr(i)
+        result += ' ' + symbol
+    return result
+
+print(characters_in_between(first_string, second_string))
