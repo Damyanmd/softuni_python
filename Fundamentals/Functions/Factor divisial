@@ -1,0 +1,13 @@
+first_number = int(input())
+second_number = int(input())
+def is_factorial(a, b):
+    factorial_first = 1
+    factorial_second = 1
+    for i in range(1, a+1):
+        factorial_first *= i
+    for i in range(1, b+1):
+        factorial_second *= i
+    result = factorial_first / factorial_second
+    return result
+divided = is_factorial(first_number, second_number)
+print(f'{divided:.2f}')
