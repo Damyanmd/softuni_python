@@ -1,0 +1,19 @@
+percentage = int(input())
+bars_to_fill = percentage // 10
+loading_bar = []
+for i in range(10):
+    loading_bar.append('.')
+
+def is_loaded(s):
+    for i in range(s):
+
+        loading_bar[i] = '%'
+    return loading_bar
+s = percentage
+new = is_loaded(bars_to_fill)
+if percentage < 100:
+    print(f"{percentage}% [{''.join(new)}]")
+    print('Still loading...')
+else:
+    print('100% Complete!')
+    print('[%%%%%%%%%%]')
