@@ -1,0 +1,14 @@
+number = input()
+def sum_odd_even(a):
+    even_sum = 0
+    odd_sum = 0
+    for i in range(len(a)):
+        intijer = int(a[i])
+        if intijer % 2 == 0:
+            even_sum += intijer
+
+        else:
+            odd_sum += intijer
+    return even_sum, odd_sum;
+even_sum, odd_sum = sum_odd_even(number)
+print('Odd sum = ' + str(odd_sum) + ', Even sum =', even_sum)
