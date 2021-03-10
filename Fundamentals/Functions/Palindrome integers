@@ -1,0 +1,15 @@
+def isPalindrome(element):
+    revesed_element = element[::-1]
+    if element == revesed_element:
+        return True
+    return False
+
+def separate_element(text, sep):
+    numbers_as_string = text.split(sep)
+    return numbers_as_string
+
+data = input()
+nums_strings = separate_element(data, ', ')
+
+for el in nums_strings:
+    print(isPalindrome(el))
