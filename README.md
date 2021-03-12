@@ -1,1 +1,1 @@
-# SoftUni_Python
+# softuni-python
