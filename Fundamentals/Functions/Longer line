@@ -1,0 +1,30 @@
+import math
+
+first_line_x1 = float(input())
+first_line_y1 = float(input())
+first_line_x2 = float(input())
+first_line_y2 = float(input())
+second_line_x1 = float(input())
+second_line_y1 = float(input())
+second_line_x2 = float(input())
+second_line_y2 = float(input())
+
+double_line1 = abs((first_line_x2 - first_line_x1) + (first_line_y2 - first_line_y1))
+double_line2 = abs((second_line_x2 - second_line_x1) + (second_line_y2 - second_line_y1))
+if double_line1 >= double_line2:
+    closest_to_center = (abs(first_line_x1) + abs(first_line_y1)) - (abs(first_line_x2) + abs(first_line_y2))
+    if closest_to_center <= 0:
+        print(f'({math.floor(first_line_x1)}, {math.floor(first_line_y1)})({math.floor(first_line_x2)}, {math.floor(first_line_y2)})')
+    else:
+        print(f'({math.floor(first_line_x2)}, {math.floor(first_line_y2)})({math.floor(first_line_x1)}, {math.floor(first_line_y1)})')
+
+
+else:
+    closest_to_center = (abs(second_line_x1) + abs(second_line_y1)) - (
+            abs(second_line_x2) + abs(second_line_y2))
+    if closest_to_center <= 0:
+        print(
+            f'({math.floor(second_line_x1)}, {math.floor(second_line_y1)})({math.floor(second_line_x2)}, {math.floor(second_line_y2)})')
+    else:
+        print(
+            f'({math.floor(second_line_x2)}, {math.floor(second_line_y2)})({math.floor(second_line_x1)}, {math.floor(second_line_y1)})')
