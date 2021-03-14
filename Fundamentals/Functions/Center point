@@ -1,0 +1,14 @@
+import math
+
+first_point_x = float(input())
+first_point_y = float(input())
+second_point_x = float(input())
+second_point_y = float(input())
+
+checker_first = abs(first_point_x) + abs(first_point_y)
+checker_second = abs(second_point_x) + abs(second_point_y)
+
+if checker_first > checker_second:
+    print(f'({math.floor(second_point_x)}, {math.floor(second_point_y)})')
+else:
+    print(f'({math.floor(first_point_x)}, {math.floor(first_point_y)})')
