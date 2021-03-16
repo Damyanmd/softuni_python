@@ -1,0 +1,13 @@
+notes = []
+
+while True:
+    command = input()
+    if command == 'End':
+        break
+    tokens = command.split('-', maxsplit=1)
+    priority = int(tokens[0])
+    tasks = tokens[1]
+    notes.append((priority, tasks))
+
+task_in_priority = [task_name for priority, task_name in sorted(notes)]
+print(task_in_priority)
