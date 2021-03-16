@@ -1,0 +1,10 @@
+employeеs = input().split(" ")
+happiness_factor = int(input())
+employees_1 = list(map(lambda x: int(x) * happiness_factor, employeеs))
+filtered = list(filter(lambda x: int(x) >= (sum(employees_1)/ len(employees_1)), employees_1))
+
+if len(filtered) >= len(employees_1) / 2:
+    print(f"Score: {len(filtered)}/{len(employees_1)}. Employees are happy!")
+
+else:
+    print(f"Score: {len(filtered)}/{len(employees_1)}. Employees are not happy!")
