@@ -1,0 +1,15 @@
+groups = list(map(int, input().split(', ')))
+list_of_groups = []
+n = 10
+while len(groups) > 0:
+    for i in groups:
+
+        if i <= n:
+            list_of_groups.append(i)
+
+    groups = [ele for ele in groups if ele not in list_of_groups]
+
+    print(f'Group of {n}\'s: {list_of_groups}')
+    list_of_groups = []
+    n += 10
+
