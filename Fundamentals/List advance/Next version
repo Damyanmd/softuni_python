@@ -1,0 +1,16 @@
+version = list(map(int, input().split(".")))
+change = version[2] + 1
+if change == 10:
+    change = 0
+    new_change = version[1] + 1
+    if new_change == 10:
+        new_change = 0
+        new_new_change = version[0] + 1
+        print(str(new_new_change) + '.' + str(new_change) + '.' + str(change))
+
+    else:
+        print(str(version[0]) + '.' + str(new_change) + '.' + str(change))
+
+else:
+    print(str(version[0]) + '.' + str(version[1]) + '.' + str(change))
+
