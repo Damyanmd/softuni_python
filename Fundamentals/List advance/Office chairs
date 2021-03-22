@@ -1,0 +1,18 @@
+rooms = int(input())
+
+have_chairs = True
+free_chair = 0
+for i in range(1, rooms+1):
+    room = input().split(' ')
+
+    needed = int(room[1])
+    chairs = room[0]
+    if len(chairs) >= needed:
+        free_chair += len(chairs) - needed
+    else:
+        needed_chair = needed - len(chairs)
+        print(f'{needed_chair} more chairs needed in room {i}')
+        have_chairs = False
+
+if have_chairs:
+    print(f'Game On, {free_chair} free chairs left')
