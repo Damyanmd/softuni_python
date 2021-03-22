@@ -1,0 +1,9 @@
+first_line = input().split(', ')
+second_line = input().split(', ')
+new_list = []
+for i in first_line:
+    for j in second_line:
+        if i in j:
+            new_list.append(i)
+            break
+print(new_list)
