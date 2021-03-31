@@ -1,0 +1,47 @@
+cities_pop = {}
+cities_gold = {}
+
+cities_info = input()
+while cities_info != 'Sail':
+    city, population, gold = cities_info.split('||')
+    population = int(population)
+    gold = int(gold)
+    if city in cities_pop:
+        cities_pop[city] += population
+        cities_gold[city] += gold
+    else:
+        cities_pop[city] = population
+        cities_gold[city] = gold
+    cities_info = input()
+
+events = input()
+while events != 'End':
+    action = events.split('=>')[0]
+    if action == 'Plunder':
+        action, town, people, gold = events.split('=>')
+        people = int(people)
+        gold = int(gold)
+        print(f'{town} plundered! {gold} gold stolen, {people} citizens killed.')
+        cities_pop[town] -= people
+        cities_gold[town] -= gold
+        if cities_pop[town] <= 0 or cities_gold[town] <= 0:
+            print(f'{town} has been wiped off the map!')
+            cities_pop.pop(town)
+            cities_gold.pop(town)
+    elif action == 'Prosper':
+        action, town, gold = events.split('=>')
+        gold = int(gold)
+        if gold < 0:
+            print(f'Gold added cannot be a negative number!')
+        else:
+            cities_gold[town] += gold
+            print(f'{gold} gold added to the city treasury. {town} now has {cities_gold[town]} gold.')
+    events = input()
+
+if cities_pop == {}:
+    print(f'Ahoy, Captain! All targets have been plundered and destroyed!')
+else:
+    print(f'Ahoy, Captain! There are {len(cities_pop)} wealthy settlements to go to:')
+    cities_gold = dict(sorted(cities_gold.items(), key=lambda item: item[1], reverse=True))
+    for item, value in cities_gold.items():
+        print(f'{item} -> Population: {cities_pop[item]} citizens, Gold: {value} kg')
