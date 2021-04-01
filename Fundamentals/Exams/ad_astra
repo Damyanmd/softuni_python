@@ -1,0 +1,27 @@
+from collections import deque
+import re
+
+item_names = deque()
+expiration_date = deque()
+calories = deque()
+
+data = input()
+
+pattern = r'(#|\|)(?P<item_name>[A-Za-z\s]+)\1(?P<expiration_date>\d{2,2}/\d{2,2}/\d{2,2})\1(?P<calories>\d{1,5})\1'
+
+matches = re.finditer(pattern, data)
+
+overall_calories = 0
+
+for match in matches:
+    overall_calories += int(match.group('calories'))
+    item_names.append(match.group('item_name'))
+    expiration_date.append(match.group('expiration_date'))
+    calories.append(match.group('calories'))
+
+print(f'You have food to last you for: {overall_calories // 2000} days!')
+
+while True:
+    if len(item_names) == 0:
+        break
+    print(f'Item: {item_names.popleft()}, Best before: {expiration_date.popleft()}, Nutrition: {calories.popleft()}')
