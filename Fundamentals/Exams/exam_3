@@ -1,0 +1,44 @@
+users = {}
+
+capacity = int(input())
+data = input()
+
+while not data == "Statistics":
+    command = data.split("=")
+    if command[0] == "Add":
+        user, composer, key = command[1:]
+        if user in users:
+            pass
+        else:
+            users[user] = {'sent': int(composer), 'received': int(key)}
+    elif command[0] == "Message":
+        sender, receiver = command[1:]
+        if sender in users and receiver in users:
+            users[sender]['sent'] += 1
+            users[receiver]['received'] += 1
+            if users[sender]['sent'] + users[sender]['received'] >= capacity:
+                del users[sender]
+                print(f'{sender} reached the capacity!')
+            elif users[receiver]['sent'] + users[receiver]['received'] >= capacity:
+                del users[receiver]
+                print(f'{receiver} reached the capacity!')
+        else:
+            pass
+    elif command[0] == "Empty":
+        user = command[1]
+        if user == 'All':
+            users = {}
+        elif user in users:
+            del users[user]
+    data = input()
+
+for plant_name, value in users.items():
+    avg = value['sent'] + value['received']
+    users[plant_name]['avg'] = avg
+
+print(f'Users count: {len(users)}')
+
+ordered_key_matiral = sorted(users.items(), key=lambda x: (-x[1]['received'], x[0]))
+
+for item, quantity in ordered_key_matiral:
+    print(f'{item} - {quantity["avg"]}')
