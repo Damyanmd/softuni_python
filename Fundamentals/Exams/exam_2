@@ -1,0 +1,18 @@
+import re
+
+n = int(input())
+
+pattern = r'([$]|[%])(?P<name>[A-Z][a-z]{3,})(\1):\s([[])(?P<first>\d+)([]])([|])([[])(?P<second>\d+)([]])([|])([[])(?P<third>\d+)([]])([|])($|\s)'
+
+for i in range(n):
+    data = input()
+    match = re.match(pattern, data)
+    if match == None:
+        print(f'Valid message not found!')
+    else:
+        obj = match.groupdict()
+        item_names = obj['name']
+        first_letter = chr(int(obj['first']))
+        second_letter = chr(int(obj['second']))
+        third_letter = chr(int(obj['third']))
+        print(f'{item_names}: {first_letter + second_letter + third_letter}')
