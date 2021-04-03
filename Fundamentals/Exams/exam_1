@@ -1,0 +1,36 @@
+initial_string = input()
+
+data = input()
+
+while not data == "Done":
+    command = data.split(" ")
+    if command[0] == "Change":
+        val_1 = command[1]
+        val_2 = command[2]
+        if val_1 in initial_string:
+            initial_string = initial_string.replace(val_1, val_2)
+            print(initial_string)
+    elif command[0] == "Includes":
+        string = command[1]
+        result = initial_string.find(string)
+        if result > 0:
+            print('True')
+        else:
+            print('False')
+    elif command[0] == "End":
+        string = command[1]
+        result = initial_string.endswith(string)
+        print(result)
+    elif command[0] == "Uppercase":
+        initial_string = initial_string.upper()
+        print(initial_string)
+    elif command[0] == "FindIndex":
+        string = command[1]
+        result = initial_string.index(string)
+        print(result)
+    elif command[0] == "Cut":
+        start = int(command[1])
+        end = int(command[2]) + start
+        initial_string = initial_string[start:end]
+        print(initial_string)
+    data = input()
