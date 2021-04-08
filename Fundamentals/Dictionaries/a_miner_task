@@ -1,0 +1,11 @@
+item = input()
+dictionary = {}
+while item != 'stop':
+    quantity = int(input())
+    if item in dictionary:
+        dictionary[item] += quantity
+    elif item not in dictionary:
+        dictionary[item] = quantity
+    item = input()
+for (key, value) in dictionary.items():
+    print(f'{key} -> {value}')
