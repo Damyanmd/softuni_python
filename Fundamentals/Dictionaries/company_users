@@ -1,0 +1,15 @@
+users = input()
+dictionary ={}
+while users != 'End':
+    name, id = users.split(' -> ')
+    if name not in dictionary:
+        dictionary[name] = []
+        dictionary[name].append(id)
+    elif name in dictionary:
+        if id not in dictionary[name]:
+            dictionary[name].append(id)
+    users = input()
+for key, value in sorted(dictionary.items()):
+    print(key)
+    for index in value:
+        print(f'-- {index}')
