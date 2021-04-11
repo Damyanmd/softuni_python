@@ -1,0 +1,21 @@
+course = input()
+dictionary = {}
+while course != 'end':
+    program, student_name = course.split(' : ')
+    if program in dictionary:
+        dictionary[program].append(student_name)
+    if program not in dictionary:
+        dictionary[program] = []
+        dictionary[program].append(student_name)
+    course = input()
+sorted_dictionary = sorted(dictionary, key=lambda k: len(dictionary[k]), reverse=True)
+count = 0
+while True:
+    for (key, value) in dictionary.items():
+        if sorted_dictionary[count] in key:
+            print(f'{key}: {len(value)}')
+            for index in sorted(value):
+                print(f'-- {index}')
+    count += 1
+    if count == len(sorted_dictionary):
+        break
