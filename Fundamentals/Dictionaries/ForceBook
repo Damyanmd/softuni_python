@@ -1,0 +1,40 @@
+def add_user(forces_dict, side_to_join, users_to_add):
+    is_found = False
+    for side, users in forces_dict.items():
+        if users_to_add in users:
+            return forces_dict
+    if side_to_join not in forces_dict:
+        forces_dict[side_to_join] = []
+        forces_dict[side_to_join].append(users_to_add)
+    else:
+        if users_to_add not in forces_dict[side_to_join]:
+            forces_dict[side_to_join].append(users_to_add)
+    return forces_dict
+
+def transfer_user(forces_dict, side_to_transfer, users_to_transfer):
+    for side, users in forces_dict.items():
+        if users_to_transfer in users:
+            forces_dict[side].remove(users_to_transfer)
+    return add_user(forces_dict, side_to_transfer, users_to_transfer)
+
+data = input()
+forces = {}
+
+while data != 'Lumpawaroo':
+    data_list = data.split(' | ')
+    if len(data_list) > 1:
+        side, user = data.split(' | ')
+        forces = add_user(forces, side, user)
+    else:
+        user, side = data.split(' -> ')
+        forces = transfer_user(forces, side, user)
+        print(f'{user} joins the {side} side!')
+    data = input()
+
+ordered_junks = sorted(forces.items(), key=lambda x: (-len(x[1]), x[0]))
+for (key, value) in ordered_junks:
+     if len(value) == 0:
+         continue
+     print(f'Side: {key}, Members: {len(value)}')
+     for index in sorted(value):
+         print(f'! {index}')
