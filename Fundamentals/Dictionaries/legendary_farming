@@ -1,0 +1,35 @@
+dictionary = {}
+dictionary_legendary = {'shards': 0, 'fragments': 0, 'motes': 0}
+is_printed = False
+while True:
+    items = input().split(' ')
+    for i in range(0, len(items), 2):
+        key = items[i+1].lower()
+        value = int(items[i])
+        if key == 'shards' or key == 'fragments' or key == 'motes':
+            if key in dictionary_legendary:
+                dictionary_legendary[key] += value
+            if dictionary_legendary[key] >= 250:
+                dictionary_legendary[key] -= 250
+                is_printed = True
+                if key == 'shards':
+                    print('Shadowmourne obtained!')
+                    break
+                elif key == 'fragments':
+                    print('Valanyr obtained!')
+                    break
+                elif key == 'motes':
+                    print('Dragonwrath obtained!')
+                    break
+        if key in dictionary and key not in dictionary_legendary:
+            dictionary[key] += value
+        elif key not in dictionary and key not in dictionary_legendary:
+            dictionary[key] = value
+    if is_printed:
+        ordered_key_matiral = sorted(dictionary_legendary.items(), key=lambda x: (-x[1], x[0]))
+        for item, quantity in ordered_key_matiral:
+            print(f'{item}: {quantity}')
+        ordered_junks = sorted(dictionary.items(), key=lambda x: x[0])
+        for junk_item, junk_quantity in ordered_junks:
+            print(f'{junk_item}: {junk_quantity}')
+        break
