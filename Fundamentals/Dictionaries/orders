@@ -1,0 +1,18 @@
+products = input().split(' ')
+dictionary_quantity = {}
+dictionary_price = {}
+while len(products) != 1:
+    product = products[0]
+    price = float(products[1])
+    quantity = int(products[2])
+    if product not in dictionary_price or product in dictionary_price:
+        dictionary_price[product] = price
+    if product not in dictionary_quantity:
+        dictionary_quantity[product] = quantity
+    elif product in dictionary_quantity:
+        dictionary_quantity[product] += quantity
+    products = input().split(' ')
+for (key, value) in dictionary_quantity.items():
+    dictionary_price[key] *= value
+for (key, value) in dictionary_price.items():
+    print(f'{key} -> {value:.2f}')
