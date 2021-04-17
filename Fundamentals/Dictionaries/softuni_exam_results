@@ -1,0 +1,40 @@
+data = input()
+
+exam = {}
+submissions = {}
+
+while not data == "exam finished":
+    data_list = data.split("-")
+
+    if len(data_list) == 3:
+        user_name, language, points = data.split("-")
+        if language not in submissions:
+            submissions[language] = 1
+        else:
+            submissions[language] += 1
+        points = int(points)
+        if user_name not in exam:
+            exam[user_name] = {'language': language, 'points': points}
+            if language in exam[user_name]['language']:
+                exam[user_name]['language'] = language
+        elif user_name in exam:
+            if points > exam[user_name]['points']:
+                exam[user_name]['points'] = points
+    else:
+        user_name, command = data.split("-")
+        if command == "banned":
+            del (exam[user_name])
+
+    data = input()
+
+sorted_results = sorted(exam.items(), key=lambda x: (-x[1]['points'], x[0]))
+
+print("Results:")
+for user, points in sorted_results:
+    print(f"{user} | {points['points']}")
+
+print('Submissions:')
+ordered_junks = sorted(submissions.items(), key=lambda x: x[0])
+for user, points in ordered_junks:
+    print(f"{user} - {points}")
+
