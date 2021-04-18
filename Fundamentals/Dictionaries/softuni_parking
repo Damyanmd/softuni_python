@@ -1,0 +1,21 @@
+cars = int(input())
+dictionary = {}
+for i in range(cars):
+    user = input().split()
+    command = user[0]
+    name = user[1]
+    if command == 'register':
+        plate = user[2]
+        if name in dictionary:
+            print(f'ERROR: already registered with plate number {plate}')
+        elif name not in dictionary:
+            dictionary[name] = plate
+            print(f'{name} registered {plate} successfully')
+    elif command == 'unregister':
+        if name in dictionary:
+            dictionary.pop(name)
+            print(f'{name} unregistered successfully')
+        elif name not in dictionary:
+            print(f'ERROR: user {name} not found')
+for (key, value) in dictionary.items():
+    print(f'{key} => {value}')
