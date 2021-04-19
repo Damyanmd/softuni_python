@@ -1,0 +1,18 @@
+n = int(input())
+students = {}
+new_dict = {}
+for _ in range(n):
+    name = input()
+    grade = float(input())
+
+    if name not in students:
+        students[name] = []
+    students[name].append(grade)
+
+for name, grade in students.items():
+    average_grade = sum(grade)/len(grade)
+    if average_grade >= 4.5:
+        new_dict[name] = average_grade
+sorted_students = dict(sorted(new_dict.items(), key=lambda x: x[1], reverse=True))
+for (name, grade) in sorted_students.items():
+    print(f'{name} -> {grade:.2f}')
