@@ -1,0 +1,6 @@
+text = input()
+encrypted_text = ''
+for word in text:
+    new_letter = chr(ord(word) + 3)
+    encrypted_text += new_letter
+print(encrypted_text)
