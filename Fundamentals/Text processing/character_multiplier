@@ -1,0 +1,29 @@
+strings = input().split(' ')
+first_string = strings[0]
+second_string = strings[1]
+total_sum = 0
+list_1_numbers = []
+list_2_numbers = []
+
+for i in first_string:
+    number = ord(i)
+    list_1_numbers.append(number)
+for k in second_string:
+    number = ord(k)
+    list_2_numbers.append(number)
+while True:
+    if len(list_1_numbers) == 1 or len(list_2_numbers) == 1:
+        total_sum += list_1_numbers[0] * list_2_numbers[0]
+        list_1_numbers.pop(0)
+        list_2_numbers.pop(0)
+        break
+    total_sum += list_1_numbers[0] * list_2_numbers[0]
+    list_1_numbers.pop(0)
+    list_2_numbers.pop(0)
+while len(list_1_numbers) > 0:
+    total_sum += list_1_numbers[0]
+    list_1_numbers.pop(0)
+while len(list_2_numbers) > 0:
+    total_sum += list_2_numbers[0]
+    list_2_numbers.pop(0)
+print(total_sum)
