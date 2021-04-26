@@ -1,0 +1,9 @@
+text = input().split(' ')
+emoticon = ''
+for word in text:
+    for letter in range(len(word)):
+        if ':' == word[letter]:
+            emoticon += word[letter]
+            emoticon += word[letter + 1]
+            print(emoticon)
+            emoticon = ''
