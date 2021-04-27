@@ -1,0 +1,5 @@
+file = input().split("\\")
+splited_file = file[-1]
+file_name, file_extension = splited_file.split('.')
+print(f'File name: {file_name}')
+print(f'File extension: {file_extension}')
