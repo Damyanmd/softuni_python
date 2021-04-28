@@ -1,0 +1,21 @@
+position_alphabet = {chr(ele+97): ele+1 for ele in range(26)}
+
+data = input().split()
+result = 0
+
+for el in data:
+    if el == '':
+        continue
+    first_letter = el[0]
+    last_letter = el[-1]
+    number = int(el[1:-1])
+    if first_letter.islower():
+        number *= position_alphabet[first_letter]
+    elif first_letter.isupper():
+        number /= position_alphabet[first_letter.lower()]
+    if last_letter.islower():
+        number += position_alphabet[last_letter]
+    elif last_letter.isupper():
+        number -= position_alphabet[last_letter.lower()]
+    result += number
+print(f'{result:.2f}')
