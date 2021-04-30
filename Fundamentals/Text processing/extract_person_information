@@ -1,0 +1,13 @@
+n = int(input())
+for i in range(n):
+    string = input()
+    for letter in range(len(string)):
+        if string[letter] == '@':
+            beginning = letter + 1
+        elif string[letter] == '|':
+            name = string[beginning:letter]
+        if string[letter] == '#':
+            beginning = letter + 1
+        elif string[letter] == '*':
+            age = string[beginning:letter]
+    print(f'{name} is {age} years old.')
