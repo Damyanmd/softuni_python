@@ -1,0 +1,10 @@
+import re
+pattern = r'(\d+)'
+text = input()
+numbers = []
+while text:
+    matches = re.findall(pattern, text)
+    if matches:
+        numbers.extend(matches)
+    text = input()
+print(' '.join(numbers))
