@@ -1,0 +1,29 @@
+import re
+first_line = input().split(', ')
+score = {}
+for name in first_line:
+    score[name] = 0
+pattern_name = r'[A-Za-z]'
+pattern_digits = r'\d'
+line = input()
+while line != 'end of race':
+    word = ''
+    for el in re.findall(pattern_name, line):
+        word += el
+    if word in score:
+        number = 0
+        for el in re.findall(pattern_digits, line):
+            number += int(el)
+        score[word] += number
+    line = input()
+ordered_score = dict(sorted(score.items(), key=lambda x: x[1], reverse=True))
+count = 0
+for key, value in ordered_score.items():
+    count += 1
+    if count == 1:
+        print(f'1st place: {key}')
+    elif count == 2:
+        print(f'2nd place: {key}')
+    elif count == 3:
+        print(f'3rd place: {key}')
+
