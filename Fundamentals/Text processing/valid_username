@@ -1,0 +1,18 @@
+input_password = input().split(', ')
+
+def password_validator(password):
+    valid_password = []
+    for word in password:
+        valid_length = len(word) >= 3 and len(word) <= 16
+        letters_and_digits = word.isalnum()
+        possible_signs = ['-', '_']
+        if valid_length:
+            if letters_and_digits or str(possible_signs) in word:
+                valid_password.append(word)
+            else:
+                for letter in word:
+                    if letter in possible_signs:
+                        valid_password.append(word)
+    return valid_password
+
+print("\n".join(password_validator(input_password)))
