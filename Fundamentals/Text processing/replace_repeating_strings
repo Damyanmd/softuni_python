@@ -1,0 +1,9 @@
+word = input()
+privious_letter = ''
+new_word = ''
+for letter in word:
+    if privious_letter == letter:
+        continue
+    privious_letter = letter
+    new_word += letter
+print(new_word)
