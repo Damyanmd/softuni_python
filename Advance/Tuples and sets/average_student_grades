@@ -1,0 +1,15 @@
+count = int(input())
+students = {}
+
+for _ in range(count):
+    line = input().split()
+    student = line[0]
+    grade = float(line[1])
+    if student not in students:
+        students[student] = [grade]
+    else:
+        students[student].append(grade)
+
+for key, value in students.items():
+    average_grade = sum(value) / len(value)
+    print(f'{key} -> {" ".join(map(lambda value: f"{value:.2f}", value))} (avg: {average_grade:.2f})')
