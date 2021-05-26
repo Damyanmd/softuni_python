@@ -1,0 +1,37 @@
+class Calculator:
+    @staticmethod
+    def add(*args):
+        return sum(args)
+
+    @staticmethod
+    def multiply(*args):
+        result = 0
+        for number in range(len(args)):
+            if number == 1:
+                result += args[number - 1] * args[number]
+            elif number > 0:
+                result *= args[number]
+        return result
+
+    @staticmethod
+    def divide(*args):
+        result = 0
+        for number in range(len(args)):
+            if number > 0:
+                result += args[number - 1] / args[number]
+        return result
+
+    @staticmethod
+    def subtract(*args):
+        result = 0
+        for number in range(len(args)):
+            if number == 1:
+                result += args[number - 1] - args[number]
+            elif number > 0:
+                result -= args[number]
+        return result
+
+print(Calculator.add(5, 10, 4))
+print(Calculator.multiply(1, 2, 3, 5))
+print(Calculator.divide(100, 2))
+print(Calculator.subtract(90, 20, -50, 43, 7))
