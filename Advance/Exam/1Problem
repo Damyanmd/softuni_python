@@ -1,0 +1,53 @@
+from collections import deque
+
+chocolate = list(map(int, input().split(', ')))
+milk = list(map(int, input().split(', ')))
+
+count_milkshakes = 0
+
+def milk_unvalid(milk):
+    for m in milk:
+        if m <= 0:
+            milk.pop(0)
+        else:
+            return milk
+
+def chocolade_unvalid(chocolade):
+    for c in reversed(chocolate):
+        if c <= 0:
+            chocolade.pop()
+        else:
+            return chocolade
+
+
+while True:
+    milk = milk_unvalid(milk)
+    chocolate = chocolade_unvalid(chocolate)
+    if chocolate == None or milk == None or len(chocolate) == 0 or len(milk) == 0:
+        break
+    if chocolate[-1] == milk[0]:
+        count_milkshakes += 1
+        chocolate.pop()
+        milk.pop(0)
+        if count_milkshakes == 5:
+            break
+        if chocolate == None or milk == None or len(chocolate) == 0 or len(milk) == 0:
+            break
+        continue
+    chocolate[-1] -= 5
+    milk.append(milk.pop(0))
+
+if count_milkshakes == 5:
+    print(f'Great! You made all the chocolate milkshakes needed!')
+elif count_milkshakes < 5:
+    print('Not enough milkshakes.')
+
+if chocolate == None or len(chocolate) == 0:
+    print('Chocolate: empty')
+else:
+    print(f'Chocolate: {", ".join(list(map(str, chocolate)))}')
+
+if milk == None or len(milk) == 0:
+    print('Milk: empty')
+else:
+    print(f'Milk: {", ".join(list(map(str, milk)))}')
