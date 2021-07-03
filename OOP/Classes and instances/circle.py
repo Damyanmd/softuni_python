@@ -8,9 +8,7 @@ class Circle:
         self.radius = new_radius
 
     def get_area(self):
-        result = round(Circle.pi * self.radius**2, 2)
-        return result
+        return Circle.pi * (self.radius ** 2)
 
     def get_circumference(self):
-        result = round(Circle.pi * (self.radius + self.radius), 2)
-        return result
+        return 2 * Circle.pi * self.radius

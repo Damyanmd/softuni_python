@@ -1,6 +1,3 @@
-import math
-
-
 class Point:
     def __init__(self, x, y):
         self.x = x
@@ -12,8 +9,5 @@ class Point:
     def set_y(self, new_y):
         self.y = new_y
 
-    def distance(self, x, y):
-        a = self.x - x
-        b = self.y - y
-        c = math.sqrt(a**2 + b**2)
-        return c
+    def __str__(self):
+        return f'The point has coordinates ({self.x},{self.y})'
